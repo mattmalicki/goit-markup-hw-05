@@ -20,7 +20,7 @@
             ><span class="web">Web</span>Studio</a
           >
           <nav class="nav">
-            <a href="index.html" class="link">Agencja</a>
+            <a href="index.html" class="link current-page">Agencja</a>
             <a href="portfolio.html" class="link">Porfolio</a>
             <a href="" class="link">Kontakt</a>
           </nav>
@@ -46,7 +46,7 @@
       <div class="main-background">
         <div class="container">
           <h1 class="main-head">EFEKTYWNE ROZWIĄZANIA DLA WASZEGO BIZNESU</h1>
-          <button type="button" class="button button-studio">
+          <button type="button" class="button button-studio" data-modal-open>
             Zamów usługę
           </button>
         </div>
@@ -106,29 +106,32 @@
         </ul>
         <h2 class="work-head">Czym sie zajmujemy?</h2>
         <ul class="list">
-          <li>
+          <li class="work-list-item">
             <img
               src="images/work1.jpg"
               alt="Programista pracuje przy biurku"
               width="370"
               height="294"
             />
+            <span class="work-image-description">Aplikacje komputerowe</span>
           </li>
-          <li>
+          <li class="work-list-item">
             <img
               src="images/work2.jpg"
               alt="'Designer tworzy aplikacje mobilna'"
               width="370"
               height="294"
             />
+            <span class="work-image-description">Aplikacje mobilne</span>
           </li>
-          <li>
+          <li class="work-list-item">
             <img
               src="images/work3.jpg"
               alt="Designer pracujacy z paleta kolorow na tablecie"
               width="370"
               height="294"
             />
+            <span class="work-image-description">Rozwiazania graficzne</span>
           </li>
         </ul>
       </div>
@@ -384,5 +387,15 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="button close-button" data-modal-close>
+          X
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>

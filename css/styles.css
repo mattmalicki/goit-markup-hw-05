@@ -39,6 +39,7 @@ figure {
 }
 
 .button {
+  cursor: pointer;
   outline: none;
 }
 
@@ -72,6 +73,7 @@ figure {
   line-height: 1.14;
   letter-spacing: 0.02em;
   border-bottom: 1px solid var(--border-color-one);
+  position: static;
 }
 
 .page-header .logo,
@@ -177,6 +179,11 @@ figure {
   outline: none;
   text-decoration: none;
   color: var(--main-color);
+
+  /* transitions in links */
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link:visited {
@@ -223,7 +230,6 @@ figure {
 }
 
 .button-studio {
-  cursor: pointer;
   width: 200px;
   height: 50px;
   color: var(--white-color);
@@ -237,6 +243,11 @@ figure {
   border-radius: 4px;
   border: none;
   padding: 10px;
+
+  /* transition */
+  transition-property: color, background;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-studio:hover,
 .button-studio:focus {
@@ -305,6 +316,33 @@ figure {
   margin-bottom: 50px;
 }
 
+.work-list-item {
+  height: 294px;
+  position: relative;
+  text-align: center;
+}
+
+.work-image-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: 70px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-color);
+  background: rgba(47, 48, 58, 0.8);
+}
+
 /* TEAM SECTION */
 
 .team {
@@ -359,7 +397,6 @@ figure {
 */
 
 .button-portfolio {
-  cursor: pointer;
   background: var(--second-background-color);
   font-weight: 500;
   font-size: 16px;
@@ -367,6 +404,12 @@ figure {
   border: 0;
   border-radius: 4px;
   padding: 6px 22px;
+
+  /* transiton */
+
+  transition-property: color, background, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-portfolio:hover,
@@ -382,12 +425,14 @@ figure {
   font-size: 18px;
   line-height: 2;
   width: 322px;
+  color: var(--black-color);
 }
 
 .portfolio-type {
   font-size: 16px;
   line-height: 1.87;
   width: 322px;
+  color: var(--black-color);
 }
 
 .portfolio-buttons .list {
@@ -421,12 +466,22 @@ figure {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  position: relative;
+
+  /* transition */
+
+  transition-property: color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-description {
+  background-color: var(--white-color);
   padding: 20px 23px;
   border: 1px solid var(--border-color-two);
   border-top: 0;
+  z-index: 2;
 }
 
 /* ICONS STYLES
@@ -477,6 +532,12 @@ and background as a circle */
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  /* transition */
+
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* icons in CLIENTS SECTION */
@@ -491,6 +552,12 @@ and background as a circle */
   justify-content: center;
   align-items: center;
   color: var(--icons-color-one);
+
+  /* transition */
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients .list .client-logo:hover,
@@ -498,12 +565,6 @@ and background as a circle */
   color: var(--functional-color);
   border-color: var(--functional-color);
 }
-
-/* .clients .list .client-logo .icons {
-  width: 106px;
-  height: 60px;
-  fill: currentColor;
-} */
 
 /* icons in FOOTER SECTION */
 
@@ -516,6 +577,12 @@ and background as a circle */
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  /* transition */
+
+  transition-property: color, background;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* social icons in footer and team cards */
@@ -523,4 +590,185 @@ and background as a circle */
 .social-icons .socials:focus {
   color: var(--white-color);
   background-color: var(--functional-color);
+}
+
+/* MODAL WINDOW */
+/* MODAL WINDOW */
+/* MODAL WINDOW */
+
+.backdrop {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  margin: auto;
+  width: 528px;
+  height: 581px;
+  background: var(--white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  /* animation: modal-window-open 3000ms ease-in-out 100ms forwards; */
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.close-button {
+  position: relative;
+  left: calc(100% - 30px);
+  width: 30px;
+  height: 30px;
+  background-color: var(--white-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+/* PORTFOLIO CARD DESCRIPTION */
+/* PORTFOLIO CARD DESCRIPTION */
+/* PORTFOLIO CARD DESCRIPTION */
+
+.portfolio-image-description {
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+
+  width: 100%;
+  height: 294px;
+  padding-left: 24px;
+  padding-right: 45px;
+
+  background-color: rgba(33, 150, 243, 0.9);
+  color: var(--white-color);
+
+  position: absolute;
+  top: 294px;
+
+  font-style: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+
+  animation: portfolio-cards-backwards 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    forwards;
+}
+
+.portfolio-block .link:hover .portfolio-image-description {
+  animation-name: portfolio-cards-forwards;
+  animation-duration: 250ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+
+/* CURRENT PAGE MARKUP */
+
+.current-page {
+  position: relative;
+  display: block;
+  color: var(--functional-color);
+}
+
+.current-page:visited {
+  color: var(--functional-color);
+}
+
+.current-page::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  top: 45px;
+  left: 0;
+  right: 0;
+  background-color: var(--functional-color);
+  border-radius: 2px;
+}
+
+/* ANIMATIONS */
+/* ANIMATIONS */
+/* ANIMATIONS */
+
+@keyframes portfolio-cards-forwards {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transform: translateY(0);
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+    height: 294px;
+    transform: translateY(-294px);
+  }
+}
+
+@keyframes portfolio-cards-backwards {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    height: 294px;
+    transform: translateY(-294px);
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modal-window-open {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-window-close {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(100, 0);
+  }
+
+  40% {
+    transform: translate(100, 100);
+  }
+
+  60% {
+    transform: translate(-100, 100);
+  }
+
+  80% {
+    transform: translate(-100, -100);
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
 }
