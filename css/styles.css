@@ -609,6 +609,8 @@ and background as a circle */
 }
 
 .modal {
+  scale: 1;
+  opacity: 1;
   margin: auto;
   width: 528px;
   height: 581px;
@@ -616,13 +618,30 @@ and background as a circle */
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  /* animation: modal-window-open 3000ms ease-in-out 100ms forwards; */
+
+  /* animation for window to show up */
+  transition-property: opacity, scale;
+  transition-delay: 50ms;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.is-hidden .modal {
+  /* animation for window to hide */
+  scale: 0;
+  transition: scale 1000ms ease-in-out 50ms;
 }
 
 .is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+
+  /* animation */
+  transition-property: opacity, visibility;
+  transition-delay: 50ms;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 
 .close-button {
@@ -728,47 +747,5 @@ and background as a circle */
     opacity: 0;
     height: 0;
     transform: translateY(0);
-  }
-}
-
-@keyframes modal-window-open {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes modal-window-close {
-  0% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-  20% {
-    transform: translate(100, 0);
-  }
-
-  40% {
-    transform: translate(100, 100);
-  }
-
-  60% {
-    transform: translate(-100, 100);
-  }
-
-  80% {
-    transform: translate(-100, -100);
-  }
-
-  100% {
-    transform: translate(0, 0);
-    opacity: 0;
   }
 }
